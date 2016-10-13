@@ -8,7 +8,10 @@ import session from 'express-session'
 import helmet from 'helmet'
 import csurf from 'csurf'
 import apiRouter from './routes/backend'
+import config from './config'
 // const RedisStore = require('connect-redis')(session)
+
+console.log(`config: `, config.redis)
 
 const app = express()
 
