@@ -1,10 +1,11 @@
 /**
  * 工具类
  */
+
 import moment from 'moment'
 import config from '../config'
 
-export const moment = moment
+// export const moment = moment
 
 moment.locale('zh-cn') // 使用中文
 
