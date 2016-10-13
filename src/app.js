@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
     extended: true,
     limit: '1mb'
 }))
-app.use(cookieParser())
+app.use(cookieParser()) // 解析cookie
 
 app.use(helmet.hidePoweredBy())
 app.use(helmet.frameguard())
