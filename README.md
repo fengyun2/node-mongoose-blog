@@ -1,6 +1,8 @@
 # node-mongoose-blog
 > node-mongoose-blog
 
+> 只是实现某些后台接口, 没做web界面
+
 ## Install
 
 ```bash

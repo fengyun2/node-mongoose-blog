@@ -12,7 +12,7 @@ import config from './config'
 // const RedisStore = require('connect-redis')(session)
 
 // 初始化话连接数据库
-require('./common/mongoose')
+import './common/mongoose'
 
 const app = express()
 
