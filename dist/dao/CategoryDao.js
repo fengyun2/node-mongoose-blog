@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _BaseDao2 = require('./BaseDao');
@@ -37,7 +41,86 @@ var CategoryDao = function (_BaseDao) {
                 return callback(null);
             });
         }
+    }, {
+        key: 'incPostCountByAlias',
+        value: function incPostCountByAlias(alias, callback) {
+            this.model.update({ alias: alias }, { $inc: { post_count: 1 } }, function (err) {
+                if (err) {
+                    return callback(err);
+                }
+
+                return callback(null);
+            });
+        }
+    }, {
+        key: 'decPostCountByAlias',
+        value: function decPostCountByAlias(alias, callback) {
+            this.model.update({ alias: alias }, { $inc: { post_count: -1 } }, function (err) {
+                if (err) {
+                    return callback(err);
+                }
+
+                return callback(null);
+            });
+        }
+    }, {
+        key: 'getPostCountById',
+        value: function getPostCountById(id, callback) {
+            this.model.findOne({ _id: id }, 'post_count', function (err, res) {
+                if (err) {
+                    return callback(err, null);
+                }
+
+                return callback(null, res);
+            });
+        }
+    }, {
+        key: 'getPostCountByAlias',
+        value: function getPostCountByAlias(alias, callback) {
+            this.model.findOne({ alias: alias }, '-_id post_count', function (err, post_count) {
+                if (err) {
+                    return callback(err, null);
+                }
+
+                return callback(null, parseInt(post_count, 10) || 0);
+            });
+        }
+    }, {
+        key: 'incOrderById',
+        value: function incOrderById(id, callback) {
+            this.model.update({ _id: id }, { $inc: { order: 1 } }, function (err) {
+                if (err) {
+                    return callback(err);
+                }
+
+                return callback(null);
+            });
+        }
+    }, {
+        key: 'decOrderById',
+        value: function decOrderById(id, callback) {
+            this.model.update({ _id: id, order: { $gt: 0 } }, { $inc: { order: -1 } }, function (err) {
+                if (err) {
+                    return callback(err);
+                }
+
+                return callback(null);
+            });
+        }
+    }, {
+        key: 'getNameByAlias',
+        value: function getNameByAlias(alias, callback) {
+            this.model.findOne({ alias: alias }, '-_id name', function (err, res) {
+                if (err) {
+                    return callback(err, null);
+                }
+
+                return callback(null, res);
+            });
+        }
     }]);
 
     return CategoryDao;
 }(_BaseDao3.default);
+
+exports.default = CategoryDao;
