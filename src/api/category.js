@@ -27,7 +27,7 @@ export const get_all = (req, res, next) => {
         if (err) {
             return res.json({ succuess: false, error_msg: '查询分类失败' })
         }
-        return res.json({ succuess: true, msg: '添加分类成功', data: data })
+        return res.json({ succuess: true, msg: '查询分类成功', data: data })
     })
 }
 

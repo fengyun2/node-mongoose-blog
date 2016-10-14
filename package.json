@@ -27,6 +27,7 @@
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "helmet": "^2.3.0",
+    "lodash": "^4.16.4",
     "log4js": "^0.6.38",
     "lru-cache": "^4.0.1",
     "moment": "^2.15.1",

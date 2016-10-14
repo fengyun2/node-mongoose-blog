@@ -16,6 +16,12 @@ import categoryModel from '../models/category'
 // post模型
 import postModel from '../models/post'
 
+// tag模型
+import tagModel from '../models/tag'
+
+// comment模型
+import commentModel from '../models/comment'
+
 /**************************************
  *
  *  导入操作类
@@ -24,6 +30,12 @@ import postModel from '../models/post'
 
 import CategoryDao from './CategoryDao'
 
+import DocDao from './DocDao'
+
+import TagDao from './TagDao'
+
+import CommentDao from './CommentDao'
+
 /**************************************
  *
  *  导出接口(创建Entity)
@@ -31,5 +43,8 @@ import CategoryDao from './CategoryDao'
  *  ***********************************/
 
 module.exports = {
-    categoryDao: new CategoryDao(categoryModel)
+    categoryDao: new CategoryDao(categoryModel),
+    postDao: new DocDao(postModel),
+    tagDao: new TagDao(tagModel),
+    commentDao: new CommentDao(commentModel)
 }

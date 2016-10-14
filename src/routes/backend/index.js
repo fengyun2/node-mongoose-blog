@@ -1,5 +1,5 @@
 import express from 'express'
-import { category } from '../../api'
+import { category, post } from '../../api'
 import usersRouter from './users'
 const router = express.Router()
 
@@ -12,7 +12,12 @@ router.get('/', (req, res, next) => {
 
 // console.log('router_category: ', category)
 
+// category
 router.post('/category/create', category.create)
 router.get('/category/get_all', category.get_all)
+
+// post
+router.post('/post/create', post.create)
+router.get('/post/get_all', post.get_all)
 
 export default router

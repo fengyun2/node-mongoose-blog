@@ -26,4 +26,7 @@ router.get('/', function (req, res, next) {
 router.post('/category/create', _api.category.create);
 router.get('/category/get_all', _api.category.get_all);
 
+router.post('/post/create', _api.post.create);
+router.get('/post/get_all', _api.post.get_all);
+
 exports.default = router;

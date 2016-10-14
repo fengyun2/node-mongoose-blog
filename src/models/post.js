@@ -44,6 +44,7 @@ let PostSchema = new Schema({
     is_draft: { type: Boolean, default: false }
 })
 
+// 第三个参数决定集合是否以复数形式
 const postModel = mongoose.model('post', PostSchema, 'post')
 
 export default postModel
