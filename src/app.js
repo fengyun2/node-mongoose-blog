@@ -11,7 +11,8 @@ import apiRouter from './routes/backend'
 import config from './config'
 // const RedisStore = require('connect-redis')(session)
 
-console.log(`config: `, config.redis)
+// 初始化话连接数据库
+require('./common/mongoose')
 
 const app = express()
 

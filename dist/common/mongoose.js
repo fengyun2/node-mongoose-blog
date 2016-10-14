@@ -21,4 +21,5 @@ _mongoose2.default.connect(_config2.default.db, {
         _logger2.default.error('connect to %s error: ', _config2.default.db, err.message);
         process.exit(1);
     }
+    _logger2.default.log('connect to %s success: ', _config2.default.db);
 });

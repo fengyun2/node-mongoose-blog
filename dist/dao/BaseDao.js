@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -16,9 +16,15 @@ var BaseDao = function () {
     }
 
     _createClass(BaseDao, [{
-        key: "add",
+        key: 'add',
         value: function add(data, callback) {
+
+            console.log('create data: ', data);
+
             this.model.create(data, function (err) {
+
+                console.log('create err ===> ', err);
+
                 if (err) {
                     return callback(err);
                 }
@@ -27,29 +33,32 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "getById",
+        key: 'getById',
         value: function getById(id, callback) {
-            return this.model.findById(id, function (err, data) {
+            this.model.findById(id, function (err, data) {
                 if (err) {
                     return callback(err, null);
                 }
-                callback(null, data);
+                return callback(null, data);
             });
         }
     }, {
-        key: "getByIdAndUpdate",
+        key: 'getByIdAndUpdate',
         value: function getByIdAndUpdate(id, update, callback) {
-            return this.model.findByIdAndUpdate(id, update, function (err, data) {
+            this.model.findByIdAndUpdate(id, update, function (err, data) {
                 if (err) {
                     return callback(err, null);
                 }
 
-                callback(null, data);
+                return callback(null, data);
             });
         }
     }, {
-        key: "getAll",
+        key: 'getAll',
         value: function getAll(callback) {
+
+            console.log('Dao getAll');
+
             this.model.find({}, function (err, model) {
                 if (err) return callback(err, null);
 
@@ -57,7 +66,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "getByQuery",
+        key: 'getByQuery',
         value: function getByQuery(query, fields, opt, callback) {
             this.model.find(query, fields, opt, function (err, model) {
                 if (err) return callback(err, null);
@@ -66,7 +75,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "getOneByQuery",
+        key: 'getOneByQuery',
         value: function getOneByQuery(query, fields, opt, callback) {
             this.model.findOne(query, fields, opt, function (err, model) {
                 if (err) return callback(err, null);
@@ -75,7 +84,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "deleteById",
+        key: 'deleteById',
         value: function deleteById(id, callback) {
             this.model.remove({ _id: id }, function (err, raw) {
                 if (err) return callback(err, null);
@@ -84,7 +93,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "getSumCount",
+        key: 'getSumCount',
         value: function getSumCount(callback) {
             this.model.count({}, function (err, sumCount) {
                 if (err) {
@@ -95,7 +104,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "getSumCountByQuery",
+        key: 'getSumCountByQuery',
         value: function getSumCountByQuery(query, callback) {
             this.model.count(query, function (err, sumCount) {
                 if (err) {
@@ -106,7 +115,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "updateById",
+        key: 'updateById',
         value: function updateById(id, doc, callback) {
             this.model.update({ _id: id }, doc, function (err, raw) {
                 if (err) {
@@ -117,7 +126,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "findByIdAndUpdate",
+        key: 'findByIdAndUpdate',
         value: function findByIdAndUpdate(id, fields, callback) {
             this.model.findByIdAndUpdate({ _id: id }, fields, function (err, doc) {
                 if (err) {
@@ -128,7 +137,7 @@ var BaseDao = function () {
             });
         }
     }, {
-        key: "getListByPage",
+        key: 'getListByPage',
         value: function getListByPage(obj, callback) {
             var page = obj.page || 1;
             var page_size = obj.page_size || 10;

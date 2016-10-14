@@ -46,7 +46,7 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log('config: ', _config2.default.redis);
+require('./common/mongoose');
 
 var app = (0, _express2.default)();
 

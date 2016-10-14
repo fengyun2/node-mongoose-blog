@@ -9,4 +9,5 @@ mongoose.connect(config.db, {
         logger.error('connect to %s error: ', config.db, err.message)
         process.exit(1)
     }
+    logger.log('connect to %s success: ', config.db)
 })

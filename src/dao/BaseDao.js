@@ -8,7 +8,13 @@ class BaseDao {
     }
 
     add(data, callback) {
+
+        console.log('create data: ', data)
+
         this.model.create(data, err => {
+
+            console.log('create err ===> ', err)
+
             if (err) {
                 return callback(err)
             }
@@ -18,25 +24,28 @@ class BaseDao {
     }
 
     getById(id, callback) {
-        return this.model.findById(id, (err, data) => {
+        this.model.findById(id, (err, data) => {
             if (err) {
                 return callback(err, null)
             }
-            callback(null, data)
+            return callback(null, data)
         })
     }
 
     getByIdAndUpdate(id, update, callback) {
-        return this.model.findByIdAndUpdate(id, update, (err, data) => {
+        this.model.findByIdAndUpdate(id, update, (err, data) => {
             if (err) {
                 return callback(err, null)
             }
 
-            callback(null, data)
+            return callback(null, data)
         })
     }
 
     getAll(callback) {
+
+        console.log('Dao getAll')
+
         this.model.find({}, (err, model) => {
             if (err) return callback(err, null)
 
