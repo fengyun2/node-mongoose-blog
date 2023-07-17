@@ -31,7 +31,7 @@
     "log4js": "^0.6.38",
     "lru-cache": "^4.0.1",
     "moment": "^2.15.1",
-    "mongoose": "^4.6.3",
+    "mongoose": "^5.13.20",
     "morgan": "^1.7.0",
     "node-fetch": "^1.6.3",
     "redis": "^2.6.2",
